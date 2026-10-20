@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Autorización completada</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+  code { background: #f0f0f0; padding: 10px; display: block; word-break: break-all; border-radius: 6px; margin: 10px 0; }
+  button { padding: 8px 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>Autorización completada</h1>
+<p>Copia este código y pégalo donde te lo pida el script:</p>
+<code id="code">(leyendo...)</code>
+<button onclick="copiar()">Copiar código</button>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code') || '(no se encontró ningún código en la URL)';
+  document.getElementById('code').textContent = code;
+  function copiar() {
+    navigator.clipboard.writeText(code);
+    alert('Copiado');
+  }
+</script>
+</body>
+</html>
